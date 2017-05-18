@@ -1,0 +1,84 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The HTML5 Herald</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="jquery-3.2.1.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+<div id="page">
+  <div class="zdjecie_container" id="container">
+  </div>
+</div>
+
+<script>
+
+var to_delete = [];
+
+$(document).ready(function(){
+  var interval = setInterval(obrazki, 1000);
+  var interval2 = setInterval(usuwanie, 5000);
+
+
+  function obrazki()
+  {
+    var epoch = Math.floor((new Date).getTime()/1000)-10;
+    var nazwa_pliku = 'head'+epoch+'.png';
+
+    // var zdjecie_div = "<div class=\"zdjecie\" id=\"" + nazwa_pliku + "\"></div>";
+
+    var zdjecie_div = document.createElement('div');
+    zdjecie_div.className = 'zdjecie';
+    zdjecie_div.id = epoch;
+
+
+    zdjecie_div.style.backgroundImage = "url(" + nazwa_pliku + ")";
+    zdjecie_div.style.display = 'None';
+    document.getElementById('container').appendChild(zdjecie_div);
+    $('#'+epoch).slideDown(2500);
+
+    var elem = document.getElementById('container');
+    elem.scrollTop = elem.scrollHeight;
+
+    to_delete.push(epoch);
+  }
+
+
+  function usuwanie()
+  {
+    var el = to_delete.shift();
+    var obj_el = document.getElementById(el);
+    $('#'+el).fadeOut(3000);
+
+    var zdj = document.getElementsByClassName('zdjecie');
+    for(i=0; i<zdj.length; i++)
+    {
+      if(zdj[i].style.display == 'none'){
+        console.log('usuwam zdjeciuszko '+zdj[i]);
+        document.getElementById('container').removeChild(zdj[i])
+      }
+    }
+
+  }
+
+
+});
+
+
+
+
+</script>
+
+</body>
+</html>

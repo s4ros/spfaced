@@ -1,0 +1,38 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+#page {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  align-items: baseline;
+  width: 100%;
+  background-color: #ccc;
+  overflow: auto;
+}
+
+#container {
+  width: 100%;
+  height: 580;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  align-items: baseline;
+}
+
+.zdjecie {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  margin: 20px;
+}
+
+#zdjecie1{
+  width: 128px;
+  height: 128px;
+  background-color: #000;
+  background-size: cover;
+}
