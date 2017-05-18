@@ -9,7 +9,7 @@
   <meta name="author" content="SitePoint">
 
   <link rel="stylesheet" href="style.css">
-  <script src="jquery-3.2.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
   <![endif]-->
@@ -28,7 +28,7 @@ var to_delete = [];
 
 $(document).ready(function(){
   var interval = setInterval(obrazki, 1000);
-  var interval2 = setInterval(usuwanie, 45000);
+  var interval2 = setInterval(usuwanie, 41000);
 
 
   function obrazki()
@@ -70,12 +70,23 @@ $(document).ready(function(){
   function usuwanie()
   {
     var zdj = document.getElementsByClassName('zdjecie');
-    for(i=0; i<30; i++)
+
+    if(zdj.length > 100)
     {
-      // if(zdj[i].style.display == 'none'){
-        console.log('usuwam zdjeciuszko '+zdj[i]);
-        document.getElementById('container').removeChild(zdj[i])
-      // }
+      for(i=0; i<70; i++)
+      {
+        document.getElementById('container').reomveChild(zdj[i])
+      }
+    }
+    else
+    {
+      for(i=0; i<30; i++)
+      {
+        // if(zdj[i].style.display == 'none'){
+          console.log('usuwam zdjeciuszko '+zdj[i]);
+          document.getElementById('container').removeChild(zdj[i])
+        // }
+      }
     }
   }
 });
