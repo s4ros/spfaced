@@ -30,7 +30,7 @@ while True:
     # Cut the faces into separate files with timestamp
     for (x, y, w, h) in faces:
         # Draw rectangle around the faces
-        cv2.rectangle(frame, (x-50, y-50), (x+w+50, y+h+50),(0,255,0),0)
+        # cv2.rectangle(frame, (x-50, y-50), (x+w+50, y+h+50),(0,255,0),0)
         head = frame[y-50:y+h+50, x-50:x+w+50]
         filename="head{}".format(int(time.time()))
         # cv2.imshow(filename, head)
