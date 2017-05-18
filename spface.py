@@ -2,6 +2,9 @@ import cv2
 import sys
 import time
 
+# haarcascade_frontalface_alt was taken from the OpenCV project 2.4.9 TAG
+# https://github.com/opencv/opencv/tree/2.4.9
+
 cascPath = 'haarcascade_frontalface_alt.xml'
 faceCascade = cv2.CascadeClassifier(cascPath)
 
