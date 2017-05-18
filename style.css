@@ -27,6 +27,7 @@ html, body {
   width: 150px;
   height: 150px;
   background-size: cover;
+  background-image: url('icons/Po-3-icon.png');
   margin: 20px;
 }
 

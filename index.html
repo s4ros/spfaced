@@ -64,6 +64,13 @@ $(document).ready(function(){
     //   // var zdj = document.getElementsByClassName('zdjecie');
     //
     // }
+    if(zdj.length > 60)
+    {
+      for(i=0; i<20; i++)
+      {
+        document.getElementById('container').removeChild(zdj[i])
+      }
+    }
   }
 
 
@@ -71,22 +78,12 @@ $(document).ready(function(){
   {
     var zdj = document.getElementsByClassName('zdjecie');
 
-    if(zdj.length > 100)
+    for(i=0; i<30; i++)
     {
-      for(i=0; i<70; i++)
-      {
-        document.getElementById('container').reomveChild(zdj[i])
-      }
-    }
-    else
-    {
-      for(i=0; i<30; i++)
-      {
-        // if(zdj[i].style.display == 'none'){
-          console.log('usuwam zdjeciuszko '+zdj[i]);
-          document.getElementById('container').removeChild(zdj[i])
-        // }
-      }
+      // if(zdj[i].style.display == 'none'){
+        console.log('usuwam zdjeciuszko '+zdj[i]);
+        document.getElementById('container').removeChild(zdj[i])
+      // }
     }
   }
 });
