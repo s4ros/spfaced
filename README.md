@@ -15,3 +15,21 @@ Docker container with simple Apache2 configuration and server the [index.html](i
 ```bash
 sudo apt install python-opencv
 ```
+## Docker
+
+If you don't have (or don't want to have) Apache2 installed you can use my
+alpine based Docker container.
+
+```
+ docker pull s4ros/apache2
+```
+
+Example execution
+
+```bash
+docker run -it \
+--net=host \
+-v ${PWD}:/var/www/localhost/htdocs \
+s4ros/apache2 \
+/bin/ash
+```
