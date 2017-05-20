@@ -13,11 +13,28 @@
   <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
   <![endif]-->
+<script>
+function UrlExists(url)
+{
+  var http = new XMLHttpRequest();
+  http.open('HEAD', url, false);
+  http.send();
+  return http.status!=404;
+}
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+</script>
 </head>
 
 <body>
 
 <div id="page">
+  <div id="logo_container">
+    <div id="logo">Dni otwarte 2017</div>
+  </div>
   <div class="zdjecie_container" id="container">
   </div>
 </div>
@@ -43,7 +60,14 @@ $(document).ready(function(){
     zdjecie_div.id = epoch;
 
 
-    zdjecie_div.style.backgroundImage = "url(" + nazwa_pliku + ")";
+    if(UrlExists(nazwa_pliku))
+    {
+      zdjecie_div.style.backgroundImage = "url(" + nazwa_pliku + ")";
+    }
+    else {
+      var rand = getRandomInt(1,14)
+      zdjecie_div.style.backgroundImage = "url(icons/"+ rand +".png)"
+    }
     zdjecie_div.style.display = 'None';
     document.getElementById('container').appendChild(zdjecie_div);
     $('#'+epoch).slideDown(2500);

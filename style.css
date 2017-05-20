@@ -9,8 +9,25 @@ html, body {
   position: relative;
   align-items: baseline;
   width: 100%;
-  background-color: #ccc;
+  background-color: #fff;
   overflow: auto;
+}
+
+#logo_container {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+  background-color: #f00;
+  display: flex;
+}
+
+#logo {
+  position: relative;
+  width: 500px;
+  height: 125px;
+  text-align: center;
+  vertical-align: middle;
 }
 
 #container {
