@@ -18,16 +18,37 @@ html, body {
   align-items: center;
   justify-content: center;
   width:100%;
-  background-color: #f00;
+  height: 120px;
+  background-color: #eee;
   display: flex;
 }
 
+#zsoiz {
+  background-image: url(logo.png);
+  background-size: cover;
+  width: 620px;
+  height: 100px;
+  z-index: 999;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+}
+
 #logo {
-  position: relative;
+  font-family: 'Amarante', sans-serif;
+  font-weight: bold;
+  font-size: 4em;
   width: 500px;
-  height: 125px;
   text-align: center;
   vertical-align: middle;
+  position: relative;
+  display: flex;
+}
+
+#opis {
+  display: block;
+  position: absolute;
+  bottom: 10px;
 }
 
 #container {

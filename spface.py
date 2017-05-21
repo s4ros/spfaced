@@ -1,6 +1,7 @@
 import cv2
 import sys
 import time
+import os
 
 # haarcascade_frontalface_alt was taken from the OpenCV project 2.4.9 TAG
 # https://github.com/opencv/opencv/tree/2.4.9
@@ -8,7 +9,14 @@ import time
 cascPath = 'haarcascade_frontalface_alt.xml'
 faceCascade = cv2.CascadeClassifier(cascPath)
 
-video_capture = cv2.VideoCapture(0)
+try:
+    basedir = sys.argv[1]
+    if not os.path.isdir(basedir):
+        os.makedirs(basedir)
+except:
+    basedir = 'img'
+
+video_capture = cv2.VideoCapture(1)
 video_capture.set(3,1280)
 video_capture.set(4,720)
 
@@ -34,7 +42,9 @@ while True:
         head = frame[y-50:y+h+50, x-50:x+w+50]
         filename="head{}".format(int(time.time()))
         # cv2.imshow(filename, head)
-        cv2.imwrite(filename+".png", head)
+        abs_filename=os.path.join(basedir, filename)+".png"
+        print abs_filename
+        cv2.imwrite(abs_filename, head)
         time.sleep(1)
 
     # Display the resulting frame

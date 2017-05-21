@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>The HTML5 Herald</title>
+  <title>ZSOiZ Czyżew</title>
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
 
@@ -13,6 +13,10 @@
   <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
   <![endif]-->
+
+  <link href='http://fonts.googleapis.com/css?family=Amarante&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
 <script>
 function UrlExists(url)
 {
@@ -33,7 +37,9 @@ function getRandomInt(min, max) {
 
 <div id="page">
   <div id="logo_container">
-    <div id="logo">Dni otwarte 2017</div>
+    <div id="zsoiz"></div>
+    <div id="logo">Dni Otwarte 2017</div>
+    <div id="opis">pokaż się do kamery!</div>
   </div>
   <div class="zdjecie_container" id="container">
   </div>
@@ -45,15 +51,13 @@ var to_delete = [];
 
 $(document).ready(function(){
   var interval = setInterval(obrazki, 1000);
-  var interval2 = setInterval(usuwanie, 41000);
+  // var interval2 = setInterval(usuwanie, 41000);
 
 
   function obrazki()
   {
     var epoch = Math.floor((new Date).getTime()/1000)-10;
-    var nazwa_pliku = 'head'+epoch+'.png';
-
-    // var zdjecie_div = "<div class=\"zdjecie\" id=\"" + nazwa_pliku + "\"></div>";
+    var nazwa_pliku = 'img/head'+epoch+'.png';
 
     var zdjecie_div = document.createElement('div');
     zdjecie_div.className = 'zdjecie';
@@ -79,15 +83,7 @@ $(document).ready(function(){
 
     var zdj = document.getElementsByClassName('zdjecie');
     console.log('wszystkich zdjec: '+zdj.length);
-    // if(zdj.length > 42)
-    // {
-    //   var el = to_delete.shift();
-    //   var obj_el = document.getElementById(el);
-    //   obj_el.style.display = 'none';
-    //
-    //   // var zdj = document.getElementsByClassName('zdjecie');
-    //
-    // }
+
     if(zdj.length > 60)
     {
       for(i=0; i<20; i++)
