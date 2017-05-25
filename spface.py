@@ -16,7 +16,7 @@ try:
 except:
     basedir = 'img'
 
-video_capture = cv2.VideoCapture(1)
+video_capture = cv2.VideoCapture(0)
 video_capture.set(3,1280)
 video_capture.set(4,720)
 
@@ -24,6 +24,9 @@ while True:
     # time.sleep(2)
     # Capture frame-by-frame
     ret, frame = video_capture.read()
+    if not frame:
+        print "Frame not captured ({}): {}".format(ret, frame)
+        sys.exit(1)
 
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
